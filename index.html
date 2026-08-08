@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capi Turnos - Barbería</title>
+    <title>Kenneth Turnos - Barbería</title>
     <style>
         /* --- ESTILOS GLOBALES (Negro, Blanco, Amarillo) --- */
         :root {
-            --bg-dark: #121212; /* Negro de fondo */
-            --bg-card: #1e1e1e; /* Negro ligeramente más claro para tarjetas */
-            --text-main: #e0e0e0; /* Blanco grisáceo para texto principal */
-            --primary-yellow: #ffeb3b; /* Amarillo vibrante para acentos */
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-main: #e0e0e0;
+            --primary-yellow: #ffeb3b;
             --primary-yellow-hover: #fdd835;
             --white: #ffffff;
         }
@@ -19,7 +19,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Verdana', sans-serif; /* Fuente limpia, similar a la imagen */
+            font-family: 'Verdana', sans-serif;
         }
 
         body {
@@ -29,7 +29,7 @@
             padding-bottom: 50px;
         }
 
-        /* --- ENCABEZADO (Header) --- */
+        /* --- ENCABEZADO --- */
         header {
             background-color: var(--bg-card);
             padding: 15px 20px;
@@ -48,7 +48,6 @@
             gap: 10px;
         }
 
-        /* Simulación del logo 'CAPI' de la imagen */
         .logo-icon {
             font-weight: bold;
             font-size: 1.2rem;
@@ -85,22 +84,39 @@
 
         /* --- TÍTULOS --- */
         h2 {
-            font-size: 2rem;
-            color: var(--primary-yellow); /* Amarillo para títulos, en lugar de azul */
+            font-size: 1.8rem;
+            color: var(--primary-yellow);
             margin-bottom: 20px;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* --- TEXTO DE BIENVENIDA (de image_2.png e image_3.png) --- */
+        /* --- TEXTO DE BIENVENIDA --- */
         .welcome-text p {
             margin-bottom: 20px;
             font-size: 1.05rem;
             text-align: justify;
         }
 
-        /* --- SECCIÓN RESERVAS (de image_4.png) --- */
+        /* --- GALERÍA DE TRABAJOS / FOTOS --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--primary-yellow);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- SECCIÓN RESERVAS --- */
         .booking-steps {
             list-style-type: none;
         }
@@ -123,9 +139,9 @@
             font-size: 1.1rem;
         }
 
-        /* Estilos para alertas ATENCIÓN/IMPORTANTE */
+        /* Alertas ATENCIÓN e IMPORTANTE */
         .alert-text {
-            color: #ff5252; /* Rojo para alertas críticas, como en la imagen */
+            color: #ff5252;
             font-weight: bold;
             display: block;
             margin-top: 10px;
@@ -160,11 +176,7 @@
             transform: translateY(-2px);
         }
 
-        .btn-booking:active {
-            transform: translateY(1px);
-        }
-
-        /* --- PIE DE PÁGINA (Footer) --- */
+        /* --- PIE DE PÁGINA --- */
         footer {
             text-align: center;
             font-size: 0.9rem;
@@ -173,22 +185,21 @@
             padding: 20px;
             border-top: 1px solid #333;
         }
-
     </style>
 </head>
 <body>
 
-    <!-- Cabecera simulación de la imagen -->
+    <!-- Cabecera -->
     <header>
         <div class="logo-container">
-            <div class="logo-icon">//CAPI</div>
-            <h1>Capi Turnos</h1>
+            <div class="logo-icon">//KENNETH</div>
+            <h1>Kenneth Turnos</h1>
         </div>
-        <div class="menu-icon">&#9776;</div> <!-- Icono menú hamburguesa -->
+        <div class="menu-icon">&#9776;</div>
     </header>
 
     <main>
-        <!-- Sección 1: Servicios/Bienvenida (Texto combinado de image_2 y image_3) -->
+        <!-- Sección 1: Servicios/Bienvenida -->
         <section class="welcome-text">
             <h2>Servicios que les ofrezco</h2>
             
@@ -199,7 +210,16 @@
             <p>Ya sea que necesites un retoque rápido o un cambio completo de look, te invito a que reserves tu cita y vivas la experiencia en mi barbería. ¡Nos vemos pronto!</p>
         </section>
 
-        <!-- Sección 2: Cómo reservar (Texto de image_4) -->
+        <!-- Sección 2: Mis Trabajos (Fotos) -->
+        <section>
+            <h2>Mis Trabajos</h2>
+            <div class="gallery-grid">
+                <img src="corte1.jpg" alt="Corte de pelo 1" class="gallery-item">
+                <img src="corte2.jpg" alt="Corte de pelo 2" class="gallery-item">
+            </div>
+        </section>
+
+        <!-- Sección 3: Reservar Turnos -->
         <section>
             <h2>Reservar Turnos</h2>
             <p style="text-align: center; margin-bottom: 20px;">Sigue los siguientes pasos para reservar correctamente:</p>
@@ -215,25 +235,24 @@
                 </li>
             </ul>
 
-            <!-- Botón de acción principal -->
             <div class="btn-container">
                 <button class="btn-booking" onclick="window.location.href='#calendario'">Paso 1: Reservar turno</button>
             </div>
         </section>
 
-        <!-- Sección 3: Simulación Calendario (para completar la experiencia, de image_5) -->
+        <!-- Sección 4: Calendario -->
         <section id="calendario" style="text-align: center;">
             <h2>Seleccione un día</h2>
-            <p style="color: #888; font-style: italic;">[ Aquí se integraría tu calendario de Calendly real ]</p>
+            <p style="color: #888; font-style: italic;">[ Aquí se integrará tu calendario de reservas ]</p>
             <div style="font-size: 3rem; color: var(--primary-yellow); margin: 20px 0;">🗓️</div>
-            <p>Simulación de Calendario: Agosto 2026</p>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 Capi Turnos. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Kenneth Turnos. Todos los derechos reservados.</p>
     </footer>
 
 </body>
 </html>
+
