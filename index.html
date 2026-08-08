@@ -22,6 +22,11 @@
             font-family: 'Verdana', sans-serif;
         }
 
+        /* Desplazamiento suave al hacer clic en botones de ancla */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
@@ -82,7 +87,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
 
-        /* --- TÍTULOS --- */
+        /* --- TÍTULOS Y TEXTOS --- */
         h2 {
             font-size: 1.8rem;
             color: var(--primary-yellow);
@@ -92,7 +97,14 @@
             letter-spacing: 1px;
         }
 
-        /* --- TEXTO DE BIENVENIDA --- */
+        .hero-title {
+            font-size: 1.4rem;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
         .welcome-text p {
             margin-bottom: 20px;
             font-size: 1.05rem;
@@ -151,21 +163,24 @@
             background-color: rgba(255, 82, 82, 0.1);
         }
 
-        /* --- BOTÓN DE ACCIÓN --- */
+        /* --- BOTONES DE ACCIÓN --- */
         .btn-container {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         .btn-booking {
+            display: inline-block;
             background-color: var(--primary-yellow);
             color: var(--bg-dark);
             padding: 15px 30px;
             border: none;
             border-radius: 5px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             text-transform: uppercase;
+            text-decoration: none;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 15px rgba(255, 235, 59, 0.3);
@@ -199,12 +214,19 @@
     </header>
 
     <main>
-        <!-- Sección 1: Servicios/Bienvenida -->
+        <!-- Sección 1: Bienvenida e Introducción -->
         <section class="welcome-text">
             <h2>Servicios que les ofrezco</h2>
             
+            <p class="hero-title">Hola, mi nombre es Kenneth y ofrezco un servicio de corte único.</p>
+            
             <p>En mi barbería, cada corte de pelo es una experiencia única. Ofrezco una variedad de estilos para que salgas de aquí sintiéndote y viéndote mejor que nunca. Desde los cortes más clásicos hasta los más modernos, estoy aquí para ayudarte a encontrar el look que más te guste.</p>
             
+            <!-- Botón de acceso directo hacia el Calendario -->
+            <div class="btn-container">
+                <a href="#calendario" class="btn-booking">Reservar Turnos</a>
+            </div>
+
             <p>Además de ofrecer un servicio de calidad, me gusta que mis clientes se sientan cómodos y entretenidos mientras están en mi silla. Mi objetivo es que disfrutes de cada minuto que pasas aquí y que salgas con una sonrisa en el rostro, no solo por tu nuevo corte, sino por la experiencia en general.</p>
             
             <p>Ya sea que necesites un retoque rápido o un cambio completo de look, te invito a que reserves tu cita y vivas la experiencia en mi barbería. ¡Nos vemos pronto!</p>
@@ -219,9 +241,9 @@
             </div>
         </section>
 
-        <!-- Sección 3: Reservar Turnos -->
+        <!-- Sección 3: Instrucciones para Reservar -->
         <section>
-            <h2>Reservar Turnos</h2>
+            <h2>Pasos para Reservar</h2>
             <p style="text-align: center; margin-bottom: 20px;">Sigue los siguientes pasos para reservar correctamente:</p>
             
             <ul class="booking-steps">
@@ -236,15 +258,20 @@
             </ul>
 
             <div class="btn-container">
-                <button class="btn-booking" onclick="window.location.href='#calendario'">Paso 1: Reservar turno</button>
+                <a href="#calendario" class="btn-booking">Ir al Calendario</a>
             </div>
         </section>
 
-        <!-- Sección 4: Calendario -->
+        <!-- Sección 4: Calendario de Calendly -->
         <section id="calendario" style="text-align: center;">
-            <h2>Seleccione un día</h2>
-            <p style="color: #888; font-style: italic;">[ Aquí se integrará tu calendario de reservas ]</p>
-            <div style="font-size: 3rem; color: var(--primary-yellow); margin: 20px 0;">🗓️</div>
+            <h2>Seleccione un día y hora</h2>
+            
+            <!-- Widget oficial de Calendly -->
+            <div class="calendly-inline-widget" 
+                 data-url="AQUÍ_PONES_TU_LINK_DE_CALENDLY" 
+                 style="min-width:320px;height:700px;">
+            </div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </section>
 
     </main>
@@ -255,4 +282,3 @@
 
 </body>
 </html>
-
