@@ -1,169 +1,239 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Página Web</title>
-  <style>
-    /* Estilos globales y reset básico */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capi Turnos - Barbería</title>
+    <style>
+        /* --- ESTILOS GLOBALES (Negro, Blanco, Amarillo) --- */
+        :root {
+            --bg-dark: #121212; /* Negro de fondo */
+            --bg-card: #1e1e1e; /* Negro ligeramente más claro para tarjetas */
+            --text-main: #e0e0e0; /* Blanco grisáceo para texto principal */
+            --primary-yellow: #ffeb3b; /* Amarillo vibrante para acentos */
+            --primary-yellow-hover: #fdd835;
+            --white: #ffffff;
+        }
 
-    body {
-      background-color: #f4f7f6;
-      color: #333;
-      line-height: 1.6;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Verdana', sans-serif; /* Fuente limpia, similar a la imagen */
+        }
 
-    /* Navegación */
-    header {
-      background: #1e293b;
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding-bottom: 50px;
+        }
 
-    header h1 {
-      font-size: 1.5rem;
-    }
+        /* --- ENCABEZADO (Header) --- */
+        header {
+            background-color: var(--bg-card);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-yellow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    nav a {
-      color: #cbd5e1;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      transition: color 0.3s;
-    }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    nav a:hover {
-      color: #38bdf8;
-    }
+        /* Simulación del logo 'CAPI' de la imagen */
+        .logo-icon {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-yellow);
+            letter-spacing: -1px;
+        }
 
-    /* Sección Principal (Hero) */
-    .hero {
-      text-align: center;
-      padding: 5rem 1rem;
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-      color: white;
-    }
+        header h1 {
+            font-size: 1.4rem;
+            color: var(--white);
+            font-weight: normal;
+        }
 
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
+        .menu-icon {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            cursor: pointer;
+        }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+        /* --- SECCIONES PRINCIPALES --- */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    .btn {
-      background: #f97316;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
 
-    .btn:hover {
-      background: #ea580c;
-    }
+        /* --- TÍTULOS --- */
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-yellow); /* Amarillo para títulos, en lugar de azul */
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-    /* Sección de Contenido */
-    .container {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
+        /* --- TEXTO DE BIENVENIDA (de image_2.png e image_3.png) --- */
+        .welcome-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
 
-    .card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s;
-    }
+        /* --- SECCIÓN RESERVAS (de image_4.png) --- */
+        .booking-steps {
+            list-style-type: none;
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+        .booking-steps li {
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 3px solid var(--bg-dark);
+        }
 
-    .card h3 {
-      margin-bottom: 0.5rem;
-      color: #1e293b;
-    }
+        .booking-steps li.active-step {
+            border-left: 3px solid var(--primary-yellow);
+        }
 
-    /* Pie de página */
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: #0f172a;
-      color: #94a3b8;
-      margin-top: 3rem;
-    }
-  </style>
+        .step-title {
+            font-weight: bold;
+            color: var(--white);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Estilos para alertas ATENCIÓN/IMPORTANTE */
+        .alert-text {
+            color: #ff5252; /* Rojo para alertas críticas, como en la imagen */
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            border: 1px solid #ff5252;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: rgba(255, 82, 82, 0.1);
+        }
+
+        /* --- BOTÓN DE ACCIÓN --- */
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-booking {
+            background-color: var(--primary-yellow);
+            color: var(--bg-dark);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(255, 235, 59, 0.3);
+        }
+
+        .btn-booking:hover {
+            background-color: var(--primary-yellow-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-booking:active {
+            transform: translateY(1px);
+        }
+
+        /* --- PIE DE PÁGINA (Footer) --- */
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid #333;
+        }
+
+    </style>
 </head>
 <body>
 
-  <!-- Encabezado / Menú -->
-  <header>
-    <h1>MiProyecto</h1>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
+    <!-- Cabecera simulación de la imagen -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">//CAPI</div>
+            <h1>Capi Turnos</h1>
+        </div>
+        <div class="menu-icon">&#9776;</div> <!-- Icono menú hamburguesa -->
+    </header>
 
-  <!-- Sección Hero -->
-  <section class="hero" id="inicio">
-    <h2>Construye algo increíble</h2>
-    <p>Esta es una plantilla lista para adaptar con tus ideas, productos o portafolio personal.</p>
-    <button class="btn" onclick="saludar()">¡Haz clic aquí!</button>
-  </section>
+    <main>
+        <!-- Sección 1: Servicios/Bienvenida (Texto combinado de image_2 y image_3) -->
+        <section class="welcome-text">
+            <h2>Servicios que les ofrezco</h2>
+            
+            <p>En mi barbería, cada corte de pelo es una experiencia única. Ofrezco una variedad de estilos para que salgas de aquí sintiéndote y viéndote mejor que nunca. Desde los cortes más clásicos hasta los más modernos, estoy aquí para ayudarte a encontrar el look que más te guste.</p>
+            
+            <p>Además de ofrecer un servicio de calidad, me gusta que mis clientes se sientan cómodos y entretenidos mientras están en mi silla. Mi objetivo es que disfrutes de cada minuto que pasas aquí y que salgas con una sonrisa en el rostro, no solo por tu nuevo corte, sino por la experiencia en general.</p>
+            
+            <p>Ya sea que necesites un retoque rápido o un cambio completo de look, te invito a que reserves tu cita y vivas la experiencia en mi barbería. ¡Nos vemos pronto!</p>
+        </section>
 
-  <!-- Tarjetas de Contenido -->
-  <main class="container" id="servicios">
-    <div class="card">
-      <h3>Diseño Moderno</h3>
-      <p>Adaptado a pantallas de teléfonos, tabletas y computadoras de escritorio.</p>
-    </div>
-    <div class="card">
-      <h3>Rápido y Ligero</h3>
-      <p>Escrito en HTML y CSS limpios, sin dependencias ni librerías pesadas.</p>
-    </div>
-    <div class="card">
-      <h3>Fácil de Personalizar</h3>
-      <p>Modifica los colores, textos e imágenes en minutos para adaptarlo a tus necesidades.</p>
-    </div>
-  </main>
+        <!-- Sección 2: Cómo reservar (Texto de image_4) -->
+        <section>
+            <h2>Reservar Turnos</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Sigue los siguientes pasos para reservar correctamente:</p>
+            
+            <ul class="booking-steps">
+                <li class="active-step">
+                    <span class="step-title">Paso 1: Selecciona un día y la hora del calendario virtual.</span>
+                    <span class="alert-text">ATENCIÓN: Antes de realizar el pago de la seña en el paso 2, verifica que te haya llegado un correo electrónico a tu mail sobre el día y hora que seleccionaste. Todo esto para evitar algún inconveniente.</span>
+                </li>
+                <li>
+                    <span class="step-title">Paso 2: Haz el pago en línea de forma segura para confirmar el turno (tiempo límite 15 minutos) sino la reserva será cancelada.</span>
+                    <span class="alert-text">IMPORTANTE: Luego de pagar la seña enviar el comprobante al WhatsApp con día y fecha de horarios acordados.</span>
+                </li>
+            </ul>
 
-  <!-- Pie de página -->
-  <footer>
-    <p>&copy; 2026 MiProyecto. Todos los derechos reservados.</p>
-  </footer>
+            <!-- Botón de acción principal -->
+            <div class="btn-container">
+                <button class="btn-booking" onclick="window.location.href='#calendario'">Paso 1: Reservar turno</button>
+            </div>
+        </section>
 
-  <!-- Interactividad JavaScript -->
-  <script>
-    function saludar() {
-      alert("¡Hola! Tu página está funcionando perfectamente.");
-    }
-  </script>
+        <!-- Sección 3: Simulación Calendario (para completar la experiencia, de image_5) -->
+        <section id="calendario" style="text-align: center;">
+            <h2>Seleccione un día</h2>
+            <p style="color: #888; font-style: italic;">[ Aquí se integraría tu calendario de Calendly real ]</p>
+            <div style="font-size: 3rem; color: var(--primary-yellow); margin: 20px 0;">🗓️</div>
+            <p>Simulación de Calendario: Agosto 2026</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Capi Turnos. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
-
