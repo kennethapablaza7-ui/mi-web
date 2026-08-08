@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Página Web</title>
+  <style>
+    /* Estilos globales y reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navegación */
+    header {
+      background: #1e293b;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* Sección Principal (Hero) */
+    .hero {
+      text-align: center;
+      padding: 5rem 1rem;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      background: #f97316;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #ea580c;
+    }
+
+    /* Sección de Contenido */
+    .container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: #1e293b;
+    }
+
+    /* Pie de página */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #0f172a;
+      color: #94a3b8;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado / Menú -->
+  <header>
+    <h1>MiProyecto</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Sección Hero -->
+  <section class="hero" id="inicio">
+    <h2>Construye algo increíble</h2>
+    <p>Esta es una plantilla lista para adaptar con tus ideas, productos o portafolio personal.</p>
+    <button class="btn" onclick="saludar()">¡Haz clic aquí!</button>
+  </section>
+
+  <!-- Tarjetas de Contenido -->
+  <main class="container" id="servicios">
+    <div class="card">
+      <h3>Diseño Moderno</h3>
+      <p>Adaptado a pantallas de teléfonos, tabletas y computadoras de escritorio.</p>
+    </div>
+    <div class="card">
+      <h3>Rápido y Ligero</h3>
+      <p>Escrito en HTML y CSS limpios, sin dependencias ni librerías pesadas.</p>
+    </div>
+    <div class="card">
+      <h3>Fácil de Personalizar</h3>
+      <p>Modifica los colores, textos e imágenes en minutos para adaptarlo a tus necesidades.</p>
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2026 MiProyecto. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Interactividad JavaScript -->
+  <script>
+    function saludar() {
+      alert("¡Hola! Tu página está funcionando perfectamente.");
+    }
+  </script>
+
+</body>
+</html>
+
