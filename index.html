@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenneth Turnos - Barbería</title>
+    <title>Kenneth Turnos - Barbería a Domicilio</title>
     <style>
         /* --- ESTILOS GLOBALES (Negro, Blanco, Amarillo) --- */
         :root {
@@ -22,7 +22,6 @@
             font-family: 'Verdana', sans-serif;
         }
 
-        /* Desplazamiento suave al hacer clic en botones de ancla */
         html {
             scroll-behavior: smooth;
         }
@@ -106,9 +105,9 @@
         }
 
         .welcome-text p {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-size: 1.05rem;
-            text-align: justify;
+            text-align: center;
         }
 
         /* --- GALERÍA DE TRABAJOS / FOTOS --- */
@@ -191,6 +190,38 @@
             transform: translateY(-2px);
         }
 
+        /* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+
+        .whatsapp-icon {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
         /* --- PIE DE PÁGINA --- */
         footer {
             text-align: center;
@@ -214,22 +245,17 @@
     </header>
 
     <main>
-        <!-- Sección 1: Bienvenida e Introducción -->
+        <!-- Sección 1: Bienvenida -->
         <section class="welcome-text">
-            <h2>Servicios que les ofrezco</h2>
+            <h2>Barbería a Domicilio</h2>
             
-            <p class="hero-title">Hola, mi nombre es Kenneth y ofrezco un servicio de corte único.</p>
+            <p class="hero-title">Cortes de pelo y perfilado con la máxima comodidad, directo en tu casa.</p>
             
-            <p>En mi barbería, cada corte de pelo es una experiencia única. Ofrezco una variedad de estilos para que salgas de aquí sintiéndote y viéndote mejor que nunca. Desde los cortes más clásicos hasta los más modernos, estoy aquí para ayudarte a encontrar el look que más te guste.</p>
+            <p>Puntualidad, higiene con herramientas sanitizadas y un acabado impecable adaptado a tu estilo. Elige la fecha y el horario que mejor te convengan a continuación.</p>
             
-            <!-- Botón de acceso directo hacia el Calendario -->
             <div class="btn-container">
-                <a href="#calendario" class="btn-booking">Reservar Turnos</a>
+                <a href="#calendario" class="btn-booking">Reservar Turno</a>
             </div>
-
-            <p>Además de ofrecer un servicio de calidad, me gusta que mis clientes se sientan cómodos y entretenidos mientras están en mi silla. Mi objetivo es que disfrutes de cada minuto que pasas aquí y que salgas con una sonrisa en el rostro, no solo por tu nuevo corte, sino por la experiencia en general.</p>
-            
-            <p>Ya sea que necesites un retoque rápido o un cambio completo de look, te invito a que reserves tu cita y vivas la experiencia en mi barbería. ¡Nos vemos pronto!</p>
         </section>
 
         <!-- Sección 2: Mis Trabajos (Fotos) -->
@@ -262,31 +288,25 @@
             </div>
         </section>
 
-        <!-- Sección 4: Atención a Domicilio -->
-        <section style="text-align: center;">
-            <h2>Atención a Domicilio</h2>
-            <div style="font-size: 3rem; margin-bottom: 10px;">🛵💈</div>
-            <p style="font-size: 1.1rem; color: var(--white); margin-bottom: 10px;">
-                <strong>¡Llevo la barbería hasta tu casa!</strong>
-            </p>
-            <p style="color: #aaa;">
-                Al seleccionar tu turno en el calendario de abajo, ingresa la <strong>dirección exacta de tu domicilio</strong> para coordinar la visita.
-            </p>
-        </section>
-
-        <!-- Sección 5: Calendario de Calendly -->
+        <!-- Sección 4: Calendario de Calendly (Vista Limpia) -->
         <section id="calendario" style="text-align: center;">
             <h2>Seleccione un día y hora</h2>
             
-            <!-- Widget oficial con tu enlace personal de Calendly -->
             <div class="calendly-inline-widget" 
-                 data-url="https://calendly.com/kennethapablaza7/30min" 
-                 style="min-width:320px;height:700px;">
+                 data-url="https://calendly.com/kennethapablaza7/30min?hide_event_type_details=1&hide_gdpr_banner=1" 
+                 style="min-width:320px;height:650px;">
             </div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </section>
 
     </main>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/54978281906" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contacto por WhatsApp">
+        <svg class="whatsapp-icon" viewBox="0 0 32 32">
+            <path d="M16 2a13 13 0 0 0-11.26 19.5L3 29l7.71-1.63A13 13 0 1 0 16 2zm0 23.83a10.78 10.78 0 0 1-5.5-1.5l-.4-.24-4.58.97.98-4.47-.26-.42a10.82 10.82 0 1 1 9.76 5.66zm5.93-8.12c-.33-.16-1.93-.95-2.23-1.06s-.52-.16-.74.16-.85 1.06-1.04 1.28-.38.25-.71.08a9 9 0 0 1-2.63-1.62 10 10 0 0 1-1.82-2.27c-.19-.33 0-.5.14-.66s.33-.38.49-.57.22-.33.33-.55a.62.62 0 0 0 0-.59c-.08-.16-.74-1.78-1.01-2.44s-.54-.56-.74-.57h-.63a1.21 1.21 0 0 0-.88.41 3.68 3.68 0 0 0-1.15 2.73 6.42 6.42 0 0 0 1.34 3.4 14.67 14.67 0 0 0 5.62 4.96c2.25.9 2.7.72 3.19.67a2.71 2.71 0 0 0 1.8-1.27 2.22 2.22 0 0 0 .15-1.26c-.08-.13-.25-.21-.58-.37z"/>
+        </svg>
+    </a>
 
     <footer>
         <p>&copy; 2026 Kenneth Turnos. Todos los derechos reservados.</p>
